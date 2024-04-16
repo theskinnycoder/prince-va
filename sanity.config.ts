@@ -1,7 +1,7 @@
-import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
-import { apiVersion, dataset, projectId } from "./sanity/env";
+import { document } from "./sanity/document";
+import { dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 
 export default defineConfig({
@@ -9,5 +9,24 @@ export default defineConfig({
 	projectId,
 	dataset,
 	schema,
-	plugins: [structureTool(), visionTool({ defaultApiVersion: apiVersion })],
+	document,
+	plugins: [
+		structureTool({
+			structure: (S) =>
+				S.list()
+					.title("Content")
+					.items([
+						S.listItem()
+							.title("Project Info")
+							.id("info")
+							.child(S.document().schemaType("info").documentId("info")),
+
+						S.divider(),
+
+						S.documentTypeListItem("album").title("Albums"),
+					]),
+		}),
+	],
+	title: "Prince Va",
+	name: "prince-va",
 });
