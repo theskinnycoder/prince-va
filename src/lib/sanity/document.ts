@@ -1,5 +1,5 @@
 import { type DocumentPluginOptions } from "sanity";
-import { singletonActions, singletonTypes } from "./lib/singleton";
+import { singletonActions, singletonTypes } from "./utils/singleton";
 
 export const document: DocumentPluginOptions = {
 	actions: (input, context) =>

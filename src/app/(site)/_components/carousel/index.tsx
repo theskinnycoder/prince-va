@@ -156,7 +156,7 @@ export function Carousel(props: CarouselProps) {
 			emblaApi.off("scroll", tweenOpacity);
 			emblaApi.off("select", onSelect);
 		};
-	}, [emblaApi, setTweenFactor, setTweenNodes, tweenScale]);
+	}, [emblaApi, setTweenFactor, setTweenNodes, tweenOpacity, tweenScale]);
 
 	return (
 		<section className="relative size-full">

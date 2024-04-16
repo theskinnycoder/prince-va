@@ -1,8 +1,8 @@
+import { document } from "@/lib/sanity/document";
+import { schema } from "@/lib/sanity/schema";
+import { dataset, projectId } from "@/lib/sanity/utils/env";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
-import { document } from "./sanity/document";
-import { dataset, projectId } from "./sanity/env";
-import { schema } from "./sanity/schema";
 
 export default defineConfig({
 	basePath: "/admin",
@@ -27,6 +27,6 @@ export default defineConfig({
 					]),
 		}),
 	],
-	title: "Prince Va",
+	title: "Prince VA",
 	name: "prince-va",
 });

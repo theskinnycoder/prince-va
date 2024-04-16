@@ -1,3 +1,5 @@
+import { urlForImage } from "@/lib/sanity/utils/image";
+import type { CustomImage } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,13 +8,13 @@ import { Button } from "../button";
 interface CardProps {
 	href: string;
 	alt: string;
-	src: string;
+	image: CustomImage;
 	buttonText: string;
 	className?: string;
 }
 
 const Card = (props: CardProps) => {
-	const { href, src, alt, buttonText, className, ...rest } = props;
+	const { href, image, alt, buttonText, className, ...rest } = props;
 
 	return (
 		<div
@@ -29,7 +31,7 @@ const Card = (props: CardProps) => {
 			{...rest}
 		>
 			<Image
-				src={src}
+				src={urlForImage(image)}
 				alt={alt}
 				className="size-full rounded-[5px] object-cover text-transparent opacity-100 transition-all duration-300 ease-in-out hover:brightness-50 hover:filter"
 				width={2000}
