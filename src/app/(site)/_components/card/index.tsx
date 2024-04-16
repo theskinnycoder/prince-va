@@ -42,7 +42,7 @@ const Card = (props: CardProps) => {
 				loading="eager"
 			/>
 			<Link
-				href={href}
+				href={href ?? "/"}
 				target="_blank"
 				rel="noopener noreferrer"
 				className="absolute inset-0 z-[1] flex items-center justify-center rounded-[5px] duration-200 hover:opacity-100 sm:flex sm:bg-black sm:bg-opacity-50 sm:opacity-0"
