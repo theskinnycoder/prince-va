@@ -20,7 +20,7 @@ const Card = (props: CardProps) => {
 		<div
 			className={cn(
 				className,
-				"relative mx-auto h-[41vh] sm:h-[50vh]",
+				"relative mx-auto h-[41dvh] sm:h-[50dvh]",
 				"rounded-md",
 				"flex items-center justify-center",
 				"cursor-pointer",
