@@ -24,10 +24,9 @@ const Card = (props: CardProps) => {
 				"rounded-md",
 				"flex items-center justify-center",
 				"cursor-pointer",
+				"z-50 my-16 shadow-2xl shadow-black/90",
+				"aspect-square",
 			)}
-			style={{
-				aspectRatio: 0.8234323432343235,
-			}}
 			{...rest}
 		>
 			<Image

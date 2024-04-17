@@ -20,6 +20,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 				"bg-transparent hover:bg-[#d9d9d9]/10",
 				"text-center uppercase",
 				"border border-[#ffffff]/30",
+				"focus:shadow-none focus:outline-none focus:ring-0",
 				className,
 			)}
 		>
