@@ -1,4 +1,5 @@
 import { sanityService } from "@/services";
+import Header from "../_components/links";
 import BgVideo from "./_sections/bg-video";
 import MainCarousel from "./_sections/main-carousel";
 import SlideFooter from "./_sections/slide-footer";
@@ -12,6 +13,8 @@ export default async function Home() {
 
 	return (
 		<main className="relative flex h-screen flex-col items-center justify-center">
+			<Header />
+
 			<BgVideo data={data} />
 
 			<SlideHeader data={data} />
