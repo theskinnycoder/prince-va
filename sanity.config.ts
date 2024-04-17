@@ -24,6 +24,9 @@ export default defineConfig({
 						S.divider(),
 
 						S.documentTypeListItem("album").title("Albums"),
+						S.documentTypeListItem("musicLink").title("Music Links"),
+						S.documentTypeListItem("socialLink").title("Social Links"),
+						S.documentTypeListItem("mediaLink").title("Media Links"),
 					]),
 		}),
 	],

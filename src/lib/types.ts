@@ -12,3 +12,8 @@ export type Album = {
 	backgroundVideo: string;
 	releaseDate: string;
 };
+
+export type LinkType = {
+	label: string;
+	href: string;
+};

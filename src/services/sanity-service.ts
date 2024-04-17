@@ -1,4 +1,4 @@
-import type { Album } from "@/lib/types";
+import type { Album, LinkType } from "@/lib/types";
 import { groq, type SanityClient } from "next-sanity";
 import { cache } from "react";
 
@@ -18,6 +18,39 @@ export default class SanityService {
 			coverArt,
 			"backgroundVideo": backgroundVideo.asset->url,
 			releaseDate,
+		}`);
+
+		return data;
+	});
+
+	getSocialLinks = cache(async () => {
+		const data = await this.client.fetch<
+			Array<LinkType>
+		>(groq`*[_type == "socialLink"]{
+			label,
+			href,
+		}`);
+
+		return data;
+	});
+
+	getMusicLinks = cache(async () => {
+		const data = await this.client.fetch<
+			Array<LinkType>
+		>(groq`*[_type == "musicLink"]{
+			label,
+			href,
+		}`);
+
+		return data;
+	});
+
+	getMediaLinks = cache(async () => {
+		const data = await this.client.fetch<
+			Array<LinkType>
+		>(groq`*[_type == "mediaLink"]{
+			label,
+			href,
 		}`);
 
 		return data;

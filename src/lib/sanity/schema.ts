@@ -1,10 +1,13 @@
 import { type SchemaPluginOptions } from "sanity";
 import album from "./schemaTypes/album";
-import info, { quickLink } from "./schemaTypes/singletons/info";
+import mediaLink from "./schemaTypes/media-link";
+import musicLink from "./schemaTypes/music-link";
+import info from "./schemaTypes/singletons/info";
+import socialLink from "./schemaTypes/social-link";
 import { singletonTypes } from "./utils/singleton";
 
 export const schema: SchemaPluginOptions = {
-	types: [quickLink, info, album],
+	types: [info, album, musicLink, mediaLink, socialLink],
 
 	templates: (templates) =>
 		templates.filter(({ schemaType }) => !singletonTypes.has(schemaType)),

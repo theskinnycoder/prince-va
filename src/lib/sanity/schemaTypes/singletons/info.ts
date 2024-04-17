@@ -26,29 +26,5 @@ export default defineType({
 			title: "Primary Email",
 			type: "string",
 		}),
-		defineField({
-			name: "quickLinks",
-			title: "Quick Links",
-			type: "array",
-			of: [{ type: "reference", to: { type: "quickLink" } }],
-		}),
-	],
-});
-
-export const quickLink = defineField({
-	name: "quickLink",
-	title: "Quick Link",
-	type: "document",
-	fields: [
-		defineField({
-			name: "label",
-			title: "Label",
-			type: "string",
-		}),
-		defineField({
-			name: "url",
-			title: "URL",
-			type: "url",
-		}),
 	],
 });

@@ -1,5 +1,6 @@
 "use client";
 
+import type { LinkType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import * as Dialog from "@radix-ui/react-dialog";
 import Link from "next/link";
@@ -7,10 +8,7 @@ import type { PropsWithChildren } from "react";
 import { Button } from "../button";
 
 interface OverlayModalProps extends PropsWithChildren<{}> {
-	links: Array<{
-		href: string;
-		label: string;
-	}>;
+	links: Array<LinkType>;
 }
 
 export default function OverlayModal({ children, links }: OverlayModalProps) {
