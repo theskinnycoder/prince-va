@@ -10,7 +10,9 @@ export default class SanityService {
 	}
 
 	getAlbums = cache(async () => {
-		const data = await this.client.fetch<Array<Album>>(groq`*[_type == "album"]{
+		const data = await this.client.fetch<
+			Array<Album>
+		>(groq`*[_type == "album"]|order(orderRank){
 			"id": _id,
 			title,
 			description,
@@ -26,7 +28,7 @@ export default class SanityService {
 	getSocialLinks = cache(async () => {
 		const data = await this.client.fetch<
 			Array<LinkType>
-		>(groq`*[_type == "socialLink"]{
+		>(groq`*[_type == "socialLink"]|order(orderRank){
 			label,
 			href,
 		}`);
@@ -37,7 +39,7 @@ export default class SanityService {
 	getMusicLinks = cache(async () => {
 		const data = await this.client.fetch<
 			Array<LinkType>
-		>(groq`*[_type == "musicLink"]{
+		>(groq`*[_type == "musicLink"]|order(orderRank){
 			label,
 			href,
 		}`);
@@ -48,7 +50,7 @@ export default class SanityService {
 	getMediaLinks = cache(async () => {
 		const data = await this.client.fetch<
 			Array<LinkType>
-		>(groq`*[_type == "mediaLink"]{
+		>(groq`*[_type == "mediaLink"]|order(orderRank){
 			label,
 			href,
 		}`);

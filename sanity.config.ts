@@ -1,6 +1,7 @@
 import { document } from "@/lib/sanity/document";
 import { schema } from "@/lib/sanity/schema";
 import { dataset, projectId } from "@/lib/sanity/utils/env";
+import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 
@@ -12,7 +13,7 @@ export default defineConfig({
 	document,
 	plugins: [
 		structureTool({
-			structure: (S) =>
+			structure: (S, context) =>
 				S.list()
 					.title("Content")
 					.items([
@@ -23,10 +24,33 @@ export default defineConfig({
 
 						S.divider(),
 
-						S.documentTypeListItem("album").title("Albums"),
-						S.documentTypeListItem("musicLink").title("Music Links"),
-						S.documentTypeListItem("socialLink").title("Social Links"),
-						S.documentTypeListItem("mediaLink").title("Media Links"),
+						orderableDocumentListDeskItem({
+							type: "album",
+							title: "Albums",
+							S,
+							context,
+						}),
+
+						orderableDocumentListDeskItem({
+							type: "musicLink",
+							title: "Music Links",
+							S,
+							context,
+						}),
+
+						orderableDocumentListDeskItem({
+							type: "socialLink",
+							title: "Social Links",
+							S,
+							context,
+						}),
+
+						orderableDocumentListDeskItem({
+							type: "mediaLink",
+							title: "Media Links",
+							S,
+							context,
+						}),
 					]),
 		}),
 	],

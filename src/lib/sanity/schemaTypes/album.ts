@@ -45,6 +45,11 @@ export default defineType({
 			title: "Release Date",
 			type: "string",
 		}),
+		defineField({
+			title: "Order",
+			name: "orderRank",
+			type: "string",
+		}),
 	],
 	preview: {
 		select: {

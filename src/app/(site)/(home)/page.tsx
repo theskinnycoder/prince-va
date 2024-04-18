@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { sanityService } from "@/services";
 import Header from "../_components/links";
 import BgVideo from "./_sections/bg-video";
@@ -12,7 +13,11 @@ export default async function Home() {
 	const data = await sanityService.getAlbums();
 
 	return (
-		<main className="relative flex h-screen flex-col items-center justify-center">
+		<main
+			className={cn(
+				"relative flex h-screen flex-col items-center justify-center",
+			)}
+		>
 			<Header />
 
 			<BgVideo data={data} />

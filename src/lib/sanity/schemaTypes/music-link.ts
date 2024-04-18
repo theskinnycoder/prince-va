@@ -15,6 +15,11 @@ export default defineType({
 			title: "URL",
 			type: "string",
 		}),
+		defineField({
+			title: "Order",
+			name: "orderRank",
+			type: "string",
+		}),
 	],
 	preview: {
 		select: {

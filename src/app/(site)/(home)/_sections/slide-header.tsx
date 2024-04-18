@@ -14,7 +14,7 @@ export default function SlideHeader({ data }: SlideHeaderProps) {
 	return (
 		<div
 			key={`${data[currentSlide].title}-${data[currentSlide].description}`}
-			className="absolute top-0 z-[10] flex h-[38dvh] items-center pt-[64px] text-center uppercase sm:h-[25dvh] sm:pt-[82px]"
+			className="absolute top-0 z-[10] flex h-[50dvh] items-center pt-[64px] text-center uppercase sm:h-[25dvh] sm:pt-[82px]"
 		>
 			<div className="flex flex-col gap-y-0.5">
 				<div className="text-sm max-xl:leading-none">

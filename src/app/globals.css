@@ -18,3 +18,10 @@
 	--slide-spacing: 1rem;
 	--slide-size: 50%;
 }
+
+@media (max-width: 640px) {
+	:root {
+		--slide-spacing: 0rem;
+		--slide-size: 1%;
+	}
+}
