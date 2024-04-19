@@ -159,7 +159,7 @@ export function Carousel(props: CarouselProps) {
 	}, [emblaApi, setTweenFactor, setTweenNodes, tweenOpacity, tweenScale]);
 
 	return (
-		<section className="relative size-full">
+		<section className="relative min-h-[100dvh] w-full">
 			<div
 				className="absolute inset-x-0 top-1/2 -translate-y-1/2 transform overflow-hidden"
 				ref={emblaRef}
