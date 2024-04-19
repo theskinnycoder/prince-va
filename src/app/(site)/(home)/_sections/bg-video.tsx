@@ -19,7 +19,7 @@ export default function BgVideo({ data }: BgVideoProps) {
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 0.5 }}
 				exit={{ opacity: 0 }}
-				className="absolute inset-0 h-screen w-full object-cover opacity-50 duration-[888ms] ease-in"
+				className="absolute inset-0 h-screen w-full object-cover opacity-50 duration-700 ease-in"
 				preload="preload"
 				playsInline
 				autoPlay
