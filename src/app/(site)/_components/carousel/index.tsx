@@ -8,7 +8,6 @@ import type {
 } from "embla-carousel";
 import useEmblaCarousel from "embla-carousel-react";
 import { type ReactNode, useCallback, useEffect, useRef } from "react";
-import { useSnapshot } from "valtio";
 import { NextButton, PrevButton, usePrevNextButtons } from "./buttons";
 import { carouselStore } from "./store";
 
@@ -22,7 +21,6 @@ const TWEEN_FACTOR_BASE = 0.52;
 export function Carousel(props: CarouselProps) {
 	const { slides, options } = props;
 	const [emblaRef, emblaApi] = useEmblaCarousel(options);
-	const { currentSlide } = useSnapshot(carouselStore);
 
 	const tweenFactor = useRef(0);
 	const tweenNodes = useRef<HTMLElement[]>([]);
@@ -76,8 +74,8 @@ export function Carousel(props: CarouselProps) {
 					}
 
 					const tweenValue = 1 - Math.abs(diffToTarget * tweenFactor.current);
-					const opacity = numberWithinRange(tweenValue, 0, 1).toString();
-					emblaApi.slideNodes()[slideIndex].style.opacity = opacity;
+					const opacity = numberWithinRange(tweenValue, 0, 1) * 0.5 + 0.5;
+					emblaApi.slideNodes()[slideIndex].style.opacity = opacity.toString();
 				});
 			});
 		},
@@ -173,6 +171,7 @@ export function Carousel(props: CarouselProps) {
 				>
 					{slides.map((slide, idx) => (
 						<div
+							className="max-sm:-mt-12"
 							style={{
 								flex: "0 0 var(--slide-size)",
 								paddingLeft: "var(--slide-spacing)",

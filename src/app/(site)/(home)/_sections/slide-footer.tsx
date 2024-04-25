@@ -14,7 +14,7 @@ export default function SlideFooter({ data }: SlideFooterProps) {
 	return (
 		<div
 			key={data[currentSlide].title}
-			className="absolute bottom-0 z-[10] flex h-[45dvh] items-center pb-[86px] text-center uppercase sm:h-[25dvh] sm:pb-[100px]"
+			className="absolute bottom-0 z-[10] flex h-[45dvh] items-center pb-[86px] text-center uppercase sm:h-[25dvh] sm:pb-[100px] sm:pt-[82px]"
 		>
 			<h3 className="text-sm font-normal text-white max-xl:leading-none">
 				{data[currentSlide].releaseDate}
