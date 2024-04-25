@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { News_Cycle } from "next/font/google";
 import { type PropsWithChildren } from "react";
 import { cn } from "../lib/utils";
@@ -9,6 +9,12 @@ const font = News_Cycle({ subsets: ["latin"], weight: ["400", "700"] });
 export const metadata: Metadata = {
 	title: "Prince VA",
 	description: "Official site of Prince VA: Recording Artist & Producer",
+};
+
+export const viewport: Viewport = {
+	themeColor: "black",
+	initialScale: 1,
+	userScalable: false,
 };
 
 interface RootLayoutProps extends PropsWithChildren<{}> {}

@@ -1,6 +1,5 @@
 import type { Album, LinkType } from "@/lib/types";
 import { groq, type SanityClient } from "next-sanity";
-import { cache } from "react";
 
 export default class SanityService {
 	private readonly client: SanityClient;
@@ -9,7 +8,7 @@ export default class SanityService {
 		this.client = client;
 	}
 
-	getAlbums = cache(async () => {
+	getAlbums = async () => {
 		const data = await this.client.fetch<
 			Array<Album>
 		>(groq`*[_type == "album"]|order(orderRank){
@@ -23,9 +22,9 @@ export default class SanityService {
 		}`);
 
 		return data;
-	});
+	};
 
-	getSocialLinks = cache(async () => {
+	getSocialLinks = async () => {
 		const data = await this.client.fetch<
 			Array<LinkType>
 		>(groq`*[_type == "socialLink"]|order(orderRank){
@@ -34,9 +33,9 @@ export default class SanityService {
 		}`);
 
 		return data;
-	});
+	};
 
-	getMusicLinks = cache(async () => {
+	getMusicLinks = async () => {
 		const data = await this.client.fetch<
 			Array<LinkType>
 		>(groq`*[_type == "musicLink"]|order(orderRank){
@@ -45,9 +44,9 @@ export default class SanityService {
 		}`);
 
 		return data;
-	});
+	};
 
-	getMediaLinks = cache(async () => {
+	getMediaLinks = async () => {
 		const data = await this.client.fetch<
 			Array<LinkType>
 		>(groq`*[_type == "mediaLink"]|order(orderRank){
@@ -56,5 +55,5 @@ export default class SanityService {
 		}`);
 
 		return data;
-	});
+	};
 }

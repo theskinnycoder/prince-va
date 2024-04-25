@@ -6,7 +6,7 @@ import MainCarousel from "./_sections/main-carousel";
 import SlideFooter from "./_sections/slide-footer";
 import SlideHeader from "./_sections/slide-header";
 
-export const revalidate = 1000 * 60 * 60 * 24; // 1 day
+export const revalidate = 86400000; // 1 day
 export const runtime = "edge";
 
 export default async function Home() {
