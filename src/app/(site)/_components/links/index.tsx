@@ -1,7 +1,9 @@
+import { ICONS } from "@/icons";
 import { sanityService } from "@/services";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../button";
+import SocialAndMediaModal from "../modals/social-and-media-modal";
 import OverlayModal from "./overlay-modal";
 
 export default async function Header() {
@@ -9,9 +11,38 @@ export default async function Header() {
 		sanityService.getMediaLinks(),
 		sanityService.getMusicLinks(),
 		sanityService.getSocialLinks(),
+		sanityService.getServiceLinks(),
 	];
 
-	const [mediaLinks, musicLinks, socialsLinks] = await Promise.all(promises);
+	const [mediaLinks, musicLinks, socialsLinks, servicesLinks] =
+		await Promise.all(promises);
+
+	const socialLinksWithIcons = socialsLinks.map((link) => {
+		switch (link.label.toLowerCase()) {
+			case "facebook":
+				return {
+					...link,
+					icon: ICONS.facebook,
+				};
+			case "instagram":
+				return {
+					...link,
+					icon: ICONS.instagram,
+				};
+			case "tiktok":
+				return {
+					...link,
+					icon: ICONS.tiktok,
+				};
+			case "youtube":
+				return {
+					...link,
+					icon: ICONS.youtube,
+				};
+			default:
+				return { ...link, icon: <></> };
+		}
+	});
 
 	return (
 		<div className="absolute inset-0 flex items-center justify-center">
@@ -37,16 +68,15 @@ export default async function Header() {
 			</OverlayModal>
 
 			{/* Media Button */}
-			<OverlayModal links={mediaLinks}>
-				<Button className="fixed bottom-7 right-4 z-50 px-3.5 xl:bottom-12 xl:right-12 xl:scale-125">
-					MEDIA
-				</Button>
-			</OverlayModal>
+			<SocialAndMediaModal
+				mediaLinks={mediaLinks}
+				socialLinks={socialLinksWithIcons}
+			/>
 
 			{/* Socials Button */}
-			<OverlayModal links={socialsLinks}>
+			<OverlayModal links={servicesLinks}>
 				<Button className="fixed bottom-7 left-4 z-50 px-3.5 xl:bottom-12 xl:left-12 xl:scale-125">
-					SOCIALS
+					SERVICES
 				</Button>
 			</OverlayModal>
 		</div>

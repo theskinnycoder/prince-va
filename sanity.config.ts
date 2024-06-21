@@ -39,6 +39,13 @@ export default defineConfig({
 						}),
 
 						orderableDocumentListDeskItem({
+							type: "serviceLink",
+							title: "Service Links",
+							S,
+							context,
+						}),
+
+						orderableDocumentListDeskItem({
 							type: "socialLink",
 							title: "Social Links",
 							S,

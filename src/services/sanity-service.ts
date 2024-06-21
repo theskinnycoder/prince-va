@@ -56,4 +56,15 @@ export default class SanityService {
 
 		return data;
 	};
+
+	getServiceLinks = async () => {
+		const data = await this.client.fetch<
+			Array<LinkType>
+		>(groq`*[_type == "serviceLink"]|order(orderRank){
+			label,
+			href,
+		}`);
+
+		return data;
+	};
 }

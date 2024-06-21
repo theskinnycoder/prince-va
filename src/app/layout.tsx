@@ -1,7 +1,7 @@
+import { cn } from "@/lib/utils";
 import type { Metadata, Viewport } from "next";
 import { News_Cycle } from "next/font/google";
 import { type PropsWithChildren } from "react";
-import { cn } from "../lib/utils";
 import "./globals.css";
 
 const font = News_Cycle({ subsets: ["latin"], weight: ["400", "700"] });
